@@ -33,7 +33,7 @@ class Solution {
 interface DivideAndConquerAlgorithm {
   Solution solve(Problem p);
   Problem[] divide(Problem p);
-  Solution combine(Solution s1, Solution s2);
+  Solution combine(Solution[] solutions);
   boolean small(Problem p);
   String recurrence();
 }

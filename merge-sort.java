@@ -1,14 +1,11 @@
-
 import java.util.Arrays;
-
 
 class MergeSort implements DivideAndConquerAlgorithm {
 
   private int kDividerFactor = 2;
 
   /**
-   * Solves the problem using a divide-and-conquer approach, specifically
-   * merge sort.
+   * Solves the problem using a divide-and-conquer approach, specifically merge sort.
    */
   @Override
   public Solution solve(Problem problem) {
@@ -20,7 +17,7 @@ class MergeSort implements DivideAndConquerAlgorithm {
       for (int i = 0; i < subproblems.length; i++) {
         solutions[i] = solve(subproblems[i]);
       }
-      return combine(solutions[0], solutions[1]);
+      return combine(solutions);
     }
   }
 
@@ -41,12 +38,24 @@ class MergeSort implements DivideAndConquerAlgorithm {
 
   @Override
   public Problem[] divide(Problem problem) {
-    // Para ampliar a k subproblemas, habria que cambiar y no devolver solo dos subproblemas.
     int[] data = problem.getData();
-    int mid = data.length / kDividerFactor;
-    int[] left = Arrays.copyOfRange(data, 0, mid);
-    int[] right = Arrays.copyOfRange(data, mid, data.length);
-    return new Problem[] { new Problem(left), new Problem(right) };
+    int subproblemSize = data.length / kDividerFactor;
+    int remainder = data.length % kDividerFactor;
+    Problem[] subproblems = new Problem[kDividerFactor];
+    int startIndex = 0;
+    for (int i = 0; i < kDividerFactor; i++) {
+      int subproblemLength = subproblemSize;
+      if (i < remainder) {
+        subproblemLength++;
+      }
+      int[] subproblemData = Arrays.copyOfRange(data, startIndex, startIndex + subproblemLength);
+      subproblems[i] = new Problem(subproblemData);
+      startIndex += subproblemLength;
+    }
+    for (Problem subproblem : subproblems) {
+      System.out.println(Arrays.toString(subproblem.getData()));
+    }
+    return subproblems;
   }
 
   /**
@@ -54,32 +63,26 @@ class MergeSort implements DivideAndConquerAlgorithm {
    * problem.
    */
   @Override
-  public Solution combine(Solution firstSolution, Solution secondSolution) {
-    // Extracting data from solutions
-    int[] leftArray = firstSolution.getSolutionData();
-    int[] rightArray = secondSolution.getSolutionData();
-    // Merging arrays initialization
-    int[] mergedArray = new int[leftArray.length + rightArray.length];
-    int leftIndex = 0, rightIndex = 0, mergeIndex = 0;
-    // Merging arrays
-    while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
-      if (leftArray[leftIndex] < rightArray[rightIndex]) {
-        // Copy element from left array
-        mergedArray[mergeIndex++] = leftArray[leftIndex++];
-      } else {
-        // Copy element from right array
-        mergedArray[mergeIndex++] = rightArray[rightIndex++];
+  public Solution combine(Solution[] solutions) {
+    // Calculate the total length of the merged array
+    int totalLength = 0;
+    for (Solution solution : solutions) {
+      totalLength += solution.getSolutionData().length;
+    }
+    int[] mergedArray = new int[totalLength];
+
+    // Merge the arrays
+    int mergeIndex = 0;
+    for (Solution solution : solutions) {
+      int[] solutionData = solution.getSolutionData();
+      for (int value : solutionData) {
+        mergedArray[mergeIndex++] = value;
       }
     }
-    // Copy remaining elements from left array
-    while (leftIndex < leftArray.length) {
-      mergedArray[mergeIndex++] = leftArray[leftIndex++];
-    }
-    // Copy remaining elements from right array
-    while (rightIndex < rightArray.length) {
-      mergedArray[mergeIndex++] = rightArray[rightIndex++];
-    }
-    // Return new solution with merged array
+
+    // Sort the merged array (you can use your favorite sorting algorithm here)
+    Arrays.sort(mergedArray);
+
     return new Solution(mergedArray);
   }
 
@@ -88,8 +91,6 @@ class MergeSort implements DivideAndConquerAlgorithm {
    */
   @Override
   public String recurrence() {
-    return "T(n) = 2T(n/2) + O(n)";
+    return "T(n) = k * T(n/k) + O(n)";
   }
-
-
 }
