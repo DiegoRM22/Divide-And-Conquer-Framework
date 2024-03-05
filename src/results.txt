@@ -1,0 +1,47 @@
+Instancia de tamaño: 10
+
+MergeSort Execution Time (Size 10): 523737 nanoseconds
+MergeSort Max Level Recursion Tree : 3
+
+QuickSort Execution Time (Size 10): 94347 nanoseconds
+QuickSort Max Level Recursion Tree : 3
+
+MergeSort3 Execution Time (Size 10): 36117 nanoseconds
+MergeSort3 Max Level Recursion Tree : 2
+
+Instancia de tamaño: 100
+
+MergeSort Execution Time (Size 100): 780095 nanoseconds
+MergeSort Max Level Recursion Tree : 6
+
+QuickSort Execution Time (Size 100): 466340 nanoseconds
+QuickSort Max Level Recursion Tree : 6
+
+MergeSort3 Execution Time (Size 100): 529066 nanoseconds
+MergeSort3 Max Level Recursion Tree : 4
+
+Instancia de tamaño: 1000
+
+MergeSort Execution Time (Size 1000): 3155814 nanoseconds
+MergeSort Max Level Recursion Tree : 9
+
+QuickSort Execution Time (Size 1000): 3825503 nanoseconds
+QuickSort Max Level Recursion Tree : 9
+
+MergeSort3 Execution Time (Size 1000): 1902648 nanoseconds
+MergeSort3 Max Level Recursion Tree : 6
+
+Instancia de tamaño: 10000
+
+MergeSort Execution Time (Size 10000): 8266453 nanoseconds
+MergeSort Max Level Recursion Tree : 13
+
+QuickSort Execution Time (Size 10000): 24768310 nanoseconds
+QuickSort Max Level Recursion Tree : 13
+
+MergeSort3 Execution Time (Size 10000): 5146155 nanoseconds
+MergeSort3 Max Level Recursion Tree : 8
+
+Average MergeSort Execution Time: 3181524 nanoseconds
+Average QuickSort Execution Time: 7288625 nanoseconds
+Average MergeSort3 Execution Time: 1903496 nanoseconds
