@@ -1,47 +1,47 @@
 Instancia de tamaño: 10
 
-MergeSort Execution Time (Size 10): 523737 nanoseconds
+MergeSort Execution Time (Size 10): 482369 nanoseconds
 MergeSort Max Level Recursion Tree : 3
 
-QuickSort Execution Time (Size 10): 94347 nanoseconds
+QuickSort Execution Time (Size 10): 114704 nanoseconds
 QuickSort Max Level Recursion Tree : 3
 
-MergeSort3 Execution Time (Size 10): 36117 nanoseconds
+MergeSort3 Execution Time (Size 10): 35266 nanoseconds
 MergeSort3 Max Level Recursion Tree : 2
 
 Instancia de tamaño: 100
 
-MergeSort Execution Time (Size 100): 780095 nanoseconds
+MergeSort Execution Time (Size 100): 1036190 nanoseconds
 MergeSort Max Level Recursion Tree : 6
 
-QuickSort Execution Time (Size 100): 466340 nanoseconds
+QuickSort Execution Time (Size 100): 426906 nanoseconds
 QuickSort Max Level Recursion Tree : 6
 
-MergeSort3 Execution Time (Size 100): 529066 nanoseconds
+MergeSort3 Execution Time (Size 100): 481347 nanoseconds
 MergeSort3 Max Level Recursion Tree : 4
 
 Instancia de tamaño: 1000
 
-MergeSort Execution Time (Size 1000): 3155814 nanoseconds
+MergeSort Execution Time (Size 1000): 5485688 nanoseconds
 MergeSort Max Level Recursion Tree : 9
 
-QuickSort Execution Time (Size 1000): 3825503 nanoseconds
+QuickSort Execution Time (Size 1000): 12015493 nanoseconds
 QuickSort Max Level Recursion Tree : 9
 
-MergeSort3 Execution Time (Size 1000): 1902648 nanoseconds
+MergeSort3 Execution Time (Size 1000): 6697067 nanoseconds
 MergeSort3 Max Level Recursion Tree : 6
 
 Instancia de tamaño: 10000
 
-MergeSort Execution Time (Size 10000): 8266453 nanoseconds
+MergeSort Execution Time (Size 10000): 10274166 nanoseconds
 MergeSort Max Level Recursion Tree : 13
 
-QuickSort Execution Time (Size 10000): 24768310 nanoseconds
+QuickSort Execution Time (Size 10000): 26704160 nanoseconds
 QuickSort Max Level Recursion Tree : 13
 
-MergeSort3 Execution Time (Size 10000): 5146155 nanoseconds
+MergeSort3 Execution Time (Size 10000): 4372703 nanoseconds
 MergeSort3 Max Level Recursion Tree : 8
 
-Average MergeSort Execution Time: 3181524 nanoseconds
-Average QuickSort Execution Time: 7288625 nanoseconds
-Average MergeSort3 Execution Time: 1903496 nanoseconds
+Average MergeSort Execution Time: 4319603 nanoseconds
+Average QuickSort Execution Time: 9815315 nanoseconds
+Average MergeSort3 Execution Time: 2896595 nanoseconds
