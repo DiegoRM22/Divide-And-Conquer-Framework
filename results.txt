@@ -1,0 +1,11 @@
+MergeSort Execution Time (Size 10): 998862 nanoseconds
+QuickSort Execution Time (Size 10): 148877 nanoseconds
+MergeSort Execution Time (Size 100): 5842426 nanoseconds
+QuickSort Execution Time (Size 100): 467011 nanoseconds
+MergeSort Execution Time (Size 1000): 9542877 nanoseconds
+QuickSort Execution Time (Size 1000): 4415534 nanoseconds
+MergeSort Execution Time (Size 10000): 8043361 nanoseconds
+QuickSort Execution Time (Size 10000): 17110853 nanoseconds
+
+Average MergeSort Execution Time: 6106881 nanoseconds
+Average QuickSort Execution Time: 5535568 nanoseconds

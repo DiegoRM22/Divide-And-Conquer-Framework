@@ -25,6 +25,9 @@ class Solution {
   public int[] getSolutionData() {
     return solutionData;
   }
+  public int size() {
+    return solutionData.length;
+  }
 }
 
 /**

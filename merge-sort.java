@@ -1,5 +1,8 @@
 import java.util.Arrays;
 
+/**
+ * Merge sort algorithm.
+ */
 class MergeSort implements DivideAndConquerAlgorithm {
 
   private int kDividerFactor = 2;
@@ -36,6 +39,9 @@ class MergeSort implements DivideAndConquerAlgorithm {
     return new Solution(problem.getData());
   }
 
+  /**
+   * Divides the problem into subproblems.
+   */
   @Override
   public Problem[] divide(Problem problem) {
     int[] data = problem.getData();
@@ -52,9 +58,9 @@ class MergeSort implements DivideAndConquerAlgorithm {
       subproblems[i] = new Problem(subproblemData);
       startIndex += subproblemLength;
     }
-    for (Problem subproblem : subproblems) {
-      System.out.println(Arrays.toString(subproblem.getData()));
-    }
+    // for (Problem subproblem : subproblems) {
+    //   System.out.println(Arrays.toString(subproblem.getData()));
+    // }
     return subproblems;
   }
 
@@ -91,6 +97,6 @@ class MergeSort implements DivideAndConquerAlgorithm {
    */
   @Override
   public String recurrence() {
-    return "T(n) = k * T(n/k) + O(n)";
+    return "T(n) = " + kDividerFactor + "T(n/" + kDividerFactor + ") + O(n)";
   }
 }
