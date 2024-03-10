@@ -81,14 +81,6 @@ class MergeSort implements DivideAndConquerAlgorithm {
   }
 
   /**
-   * Returns the recurrence relation of the merge sort algorithm.
-   */
-  @Override
-  public String recurrence() {
-    return "T(n) = " + kDividerFactor + "T(n/" + kDividerFactor + ") + O(n)";
-  }
-
-  /**
    * Returns the size of the recursion tree of the merge sort algorithm.
    * logk(n) + 1
    */

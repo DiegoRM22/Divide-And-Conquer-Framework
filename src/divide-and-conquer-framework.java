@@ -25,13 +25,30 @@ class DivideAndConquerFramework {
     }
   }
 
+  public Solution executeAlgorithm(Problem problem, int searchedValue, int left, int right) {
+    if (left <= right) {
+      int middle = left + (right - left) / 2;
+      System.out.println(problem.getData()[left] + " " + problem.getData()[middle] + " " + problem.getData()[right] + "    Valor a buscar: " + searchedValue);
+      if (problem.getData()[middle] < searchedValue) {
+        return executeAlgorithm(problem, searchedValue, middle + 1, right);
+      } else if (problem.getData()[middle] > searchedValue) {
+        return executeAlgorithm(problem, searchedValue, left, middle - 1);
+      } else {
+
+        return new Solution(new int[] { middle });
+      }
+    }
+    return new Solution(new int[] { -1 });
+  }
+
+  
   /**
    * Returns the recurrence relation of the algorithm.
    * @param algorithm the algorithm to use
    * @return the recurrence relation of the algorithm
    */
   public String getRecurrence(DivideAndConquerAlgorithm algorithm) {
-    return algorithm.recurrence();
+    return "2T(n/2) + O(n)";
   }
 
   /**

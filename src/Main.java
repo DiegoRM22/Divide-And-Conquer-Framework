@@ -14,6 +14,7 @@ public class Main {
     long averageTimeQuickSort = 0;
     long averageTimeMergeSort3 = 0;
 
+
     try {
       FileWriter writer = new FileWriter("results.txt");
 
@@ -29,8 +30,9 @@ public class Main {
         averageTimeMergeSort += elapsedTimeMergeSort;
         
         writer.write("MergeSort Execution Time (Size " + size + "): " + elapsedTimeMergeSort + " nanoseconds\n");
-        writer.write("MergeSort Max Level Recursion Tree : " + framework.getRecursionTreeSize(mergeSort, problem) + "\n\n");
-        
+        writer.write("MergeSort Max Level Recursion Tree : " + framework.getRecursionTreeSize(mergeSort, problem) + "\n");
+        writer.write("MergeSort Recurrence: " + framework.getRecurrence(mergeSort) + "\n\n");
+
         // Medir tiempo de ejecución del QuickSort
         long startTimeQuickSort = System.nanoTime();
         Solution solution2 = framework.executeAlgorithm(quickSort, problem);
@@ -39,7 +41,8 @@ public class Main {
         averageTimeQuickSort += elapsedTimeQuickSort;
         
         writer.write("QuickSort Execution Time (Size " + size + "): " + elapsedTimeQuickSort + " nanoseconds\n");
-        writer.write("QuickSort Max Level Recursion Tree : " + framework.getRecursionTreeSize(quickSort, problem) + "\n\n");
+        writer.write("QuickSort Max Level Recursion Tree : " + framework.getRecursionTreeSize(quickSort, problem) + "\n");
+        writer.write("QuickSort Recurrence: " + framework.getRecurrence(quickSort) + "\n\n");
 
         // Medir tiempo de ejecucion para MergeSort con factor de division 3.
         long startTimeMergeSort3 = System.nanoTime();
@@ -48,13 +51,31 @@ public class Main {
         long elapsedTimeMergeSort3 = endTimeMergeSort3 - startTimeMergeSort3;
         averageTimeMergeSort3 += elapsedTimeMergeSort3;
         writer.write("MergeSort3 Execution Time (Size " + size + "): " + elapsedTimeMergeSort3 + " nanoseconds\n");
-        writer.write("MergeSort3 Max Level Recursion Tree : " + framework.getRecursionTreeSize(mergeSort3, problem) + "\n\n");
+        writer.write("MergeSort3 Max Level Recursion Tree : " + framework.getRecursionTreeSize(mergeSort3, problem) + "\n");
         
+        // Imprimir la ecuación de recurrencia
+        writer.write("MergeSort Recurrence: " + framework.getRecurrence(mergeSort) + "\n\n");
+
       }
 
       writer.write("Average MergeSort Execution Time: " + averageTimeMergeSort / 4 + " nanoseconds\n");
       writer.write("Average QuickSort Execution Time: " + averageTimeQuickSort / 4 + " nanoseconds\n");
       writer.write("Average MergeSort3 Execution Time: " + averageTimeMergeSort3 / 4 + " nanoseconds\n");
+
+      // Generar una instancia de tamaño 10
+      Problem problem = instanceGenerator.generateInstance(10);
+      writer.write("\nInstancia de tamaño 10: " + Arrays.toString(problem.getData()) + "\n");
+      Solution solution = framework.executeAlgorithm(mergeSort, problem);
+      writer.write("MergeSort Solution: " + Arrays.toString(solution.getSolutionData()) + "\n");
+      // Obtener un valor de la instancia en un indice aleatorio
+      int randomIndex = (int) (Math.random() * 10);
+      int searchedValue = problem.getData()[randomIndex];
+      writer.write("Valor a buscar en la instancia: " + searchedValue + "\n");
+      Problem sortedProblem = new Problem(solution.getSolutionData());
+      Solution solution2 = framework.executeAlgorithm(sortedProblem, searchedValue, 0, problem.getData().length - 1);
+      writer.write("Indice del valor buscado: " + Arrays.toString(solution2.getSolutionData()) + "\n");
+
+      
 
       
       writer.close();

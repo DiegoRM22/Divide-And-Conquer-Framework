@@ -1,47 +1,59 @@
 Instancia de tamaño: 10
 
-MergeSort Execution Time (Size 10): 482369 nanoseconds
+MergeSort Execution Time (Size 10): 498119 nanoseconds
 MergeSort Max Level Recursion Tree : 3
+MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 10): 114704 nanoseconds
+QuickSort Execution Time (Size 10): 96339 nanoseconds
 QuickSort Max Level Recursion Tree : 3
+QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 10): 35266 nanoseconds
+MergeSort3 Execution Time (Size 10): 34374 nanoseconds
 MergeSort3 Max Level Recursion Tree : 2
+MergeSort Recurrence: 2T(n/2) + O(n)
 
 Instancia de tamaño: 100
 
-MergeSort Execution Time (Size 100): 1036190 nanoseconds
+MergeSort Execution Time (Size 100): 574141 nanoseconds
 MergeSort Max Level Recursion Tree : 6
+MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 100): 426906 nanoseconds
+QuickSort Execution Time (Size 100): 458404 nanoseconds
 QuickSort Max Level Recursion Tree : 6
+QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 100): 481347 nanoseconds
+MergeSort3 Execution Time (Size 100): 564592 nanoseconds
 MergeSort3 Max Level Recursion Tree : 4
+MergeSort Recurrence: 2T(n/2) + O(n)
 
 Instancia de tamaño: 1000
 
-MergeSort Execution Time (Size 1000): 5485688 nanoseconds
+MergeSort Execution Time (Size 1000): 5677636 nanoseconds
 MergeSort Max Level Recursion Tree : 9
+MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 1000): 12015493 nanoseconds
+QuickSort Execution Time (Size 1000): 4582715 nanoseconds
 QuickSort Max Level Recursion Tree : 9
+QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 1000): 6697067 nanoseconds
+MergeSort3 Execution Time (Size 1000): 4055091 nanoseconds
 MergeSort3 Max Level Recursion Tree : 6
+MergeSort Recurrence: 2T(n/2) + O(n)
 
 Instancia de tamaño: 10000
 
-MergeSort Execution Time (Size 10000): 10274166 nanoseconds
+MergeSort Execution Time (Size 10000): 6428606 nanoseconds
 MergeSort Max Level Recursion Tree : 13
+MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 10000): 26704160 nanoseconds
+QuickSort Execution Time (Size 10000): 6786440 nanoseconds
 QuickSort Max Level Recursion Tree : 13
+QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 10000): 4372703 nanoseconds
+MergeSort3 Execution Time (Size 10000): 5048533 nanoseconds
 MergeSort3 Max Level Recursion Tree : 8
+MergeSort Recurrence: 2T(n/2) + O(n)
 
-Average MergeSort Execution Time: 4319603 nanoseconds
-Average QuickSort Execution Time: 9815315 nanoseconds
-Average MergeSort3 Execution Time: 2896595 nanoseconds
+Average MergeSort Execution Time: 3294625 nanoseconds
+Average QuickSort Execution Time: 2980974 nanoseconds
+Average MergeSort3 Execution Time: 2425647 nanoseconds

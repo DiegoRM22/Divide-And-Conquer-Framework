@@ -75,14 +75,6 @@ class QuickSort implements DivideAndConquerAlgorithm {
   }
 
   /**
-   * Returns the recurrence relation of the algorithm.
-   */
-  @Override
-  public String recurrence() {
-    return "2T(n/2) + O(n)";
-  }
-
-  /**
    * Returns the size of the recursion tree of the algorithm.
    * logk(n) leave nodes.
    */
