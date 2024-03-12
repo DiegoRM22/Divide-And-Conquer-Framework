@@ -1,64 +1,61 @@
 Instancia de tamaño: 10
 
-MergeSort Execution Time (Size 10): 641295 nanoseconds
+MergeSort Execution Time (Size 10): 675101 nanoseconds
 MergeSort Max Level Recursion Tree : 3
 MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 10): 115114 nanoseconds
+QuickSort Execution Time (Size 10): 139180 nanoseconds
 QuickSort Max Level Recursion Tree : 3
 QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 10): 36499 nanoseconds
+MergeSort3 Execution Time (Size 10): 38331 nanoseconds
 MergeSort3 Max Level Recursion Tree : 2
 MergeSort Recurrence: 2T(n/2) + O(n)
 
 Instancia de tamaño: 100
 
-MergeSort Execution Time (Size 100): 584520 nanoseconds
+MergeSort Execution Time (Size 100): 1345123 nanoseconds
 MergeSort Max Level Recursion Tree : 6
 MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 100): 448476 nanoseconds
+QuickSort Execution Time (Size 100): 1484133 nanoseconds
 QuickSort Max Level Recursion Tree : 6
 QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 100): 455699 nanoseconds
+MergeSort3 Execution Time (Size 100): 474106 nanoseconds
 MergeSort3 Max Level Recursion Tree : 4
 MergeSort Recurrence: 2T(n/2) + O(n)
 
 Instancia de tamaño: 1000
 
-MergeSort Execution Time (Size 1000): 5155422 nanoseconds
+MergeSort Execution Time (Size 1000): 3675026 nanoseconds
 MergeSort Max Level Recursion Tree : 9
 MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 1000): 4102459 nanoseconds
+QuickSort Execution Time (Size 1000): 7152552 nanoseconds
 QuickSort Max Level Recursion Tree : 9
 QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 1000): 3082978 nanoseconds
+MergeSort3 Execution Time (Size 1000): 1183031 nanoseconds
 MergeSort3 Max Level Recursion Tree : 6
 MergeSort Recurrence: 2T(n/2) + O(n)
 
 Instancia de tamaño: 10000
 
-MergeSort Execution Time (Size 10000): 12206289 nanoseconds
+MergeSort Execution Time (Size 10000): 8552307 nanoseconds
 MergeSort Max Level Recursion Tree : 13
 MergeSort Recurrence: 2T(n/2) + O(n)
 
-QuickSort Execution Time (Size 10000): 6989768 nanoseconds
+QuickSort Execution Time (Size 10000): 8546603 nanoseconds
 QuickSort Max Level Recursion Tree : 13
 QuickSort Recurrence: 2T(n/2) + O(n)
 
-MergeSort3 Execution Time (Size 10000): 5796388 nanoseconds
+MergeSort3 Execution Time (Size 10000): 5163366 nanoseconds
 MergeSort3 Max Level Recursion Tree : 8
 MergeSort Recurrence: 2T(n/2) + O(n)
 
-Average MergeSort Execution Time: 4646881 nanoseconds
-Average QuickSort Execution Time: 2913954 nanoseconds
-Average MergeSort3 Execution Time: 2342891 nanoseconds
+Average MergeSort Execution Time: 3561889 nanoseconds
+Average QuickSort Execution Time: 4330617 nanoseconds
+Average MergeSort3 Execution Time: 1714708 nanoseconds
 
-Instancia de tamaño 10: [4745, 484, 9083, 2706, 5885, 2585, 6382, 6798, 6439, 4294]
-MergeSort Solution: [484, 2585, 2706, 4294, 4745, 5885, 6382, 6439, 6798, 9083]
-Valor a buscar en la instancia: 6439
-Indice del valor buscado: [7]
+Solución de las Torres de Hanoi con 3 discos:

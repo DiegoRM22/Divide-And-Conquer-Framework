@@ -1,87 +1,131 @@
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
-// Archivo para probar el mergesort
 public class Main {
   public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.println("Execution mode:");
+    System.out.println("1. Normal Mode");
+    System.out.println("2. Debug Mode");
+    int mode = scanner.nextInt();
+
+    if (mode == 1) {
+      normalMode();
+    } else if (mode == 2) {
+      debugMode();
+    } else {
+      System.out.println("Invalid mode");
+    }
+
+    scanner.close();
+  }
+
+  private static void normalMode() {
     InstanceGenerator instanceGenerator = new InstanceGenerator();
     DivideAndConquerFramework framework = new DivideAndConquerFramework();
-    QuickSort quickSort = new QuickSort();
-    MergeSort mergeSort = new MergeSort();
-    MergeSort mergeSort3 = new MergeSort(3);
-    long averageTimeMergeSort = 0;
-    long averageTimeQuickSort = 0;
-    long averageTimeMergeSort3 = 0;
 
+    System.out.println("Algorithm to execute:");
+    System.out.println("1. Binary Search");
+    System.out.println("2. Hanoi");
+    Scanner scanner = new Scanner(System.in);
+    int algorithmChoice = scanner.nextInt();
 
-    try {
-      FileWriter writer = new FileWriter("results.txt");
-
-      // Crear 4 instancias de diferentes tamaños
-      for (int size : new int[] {10, 100, 1000, 10000}) {
-        Problem problem = instanceGenerator.generateInstance(size);
-        writer.write("Instancia de tamaño: " + size + "\n\n" );
-        // Medir tiempo de ejecución del MergeSort
-        long startTimeMergeSort = System.nanoTime();
-        Solution solution = framework.executeAlgorithm(mergeSort, problem);
-        long endTimeMergeSort = System.nanoTime();
-        long elapsedTimeMergeSort = endTimeMergeSort - startTimeMergeSort;
-        averageTimeMergeSort += elapsedTimeMergeSort;
-        
-        writer.write("MergeSort Execution Time (Size " + size + "): " + elapsedTimeMergeSort + " nanoseconds\n");
-        writer.write("MergeSort Max Level Recursion Tree : " + framework.getRecursionTreeSize(mergeSort, problem) + "\n");
-        writer.write("MergeSort Recurrence: " + framework.getRecurrence(mergeSort) + "\n\n");
-
-        // Medir tiempo de ejecución del QuickSort
-        long startTimeQuickSort = System.nanoTime();
-        Solution solution2 = framework.executeAlgorithm(quickSort, problem);
-        long endTimeQuickSort = System.nanoTime();
-        long elapsedTimeQuickSort = endTimeQuickSort - startTimeQuickSort;
-        averageTimeQuickSort += elapsedTimeQuickSort;
-        
-        writer.write("QuickSort Execution Time (Size " + size + "): " + elapsedTimeQuickSort + " nanoseconds\n");
-        writer.write("QuickSort Max Level Recursion Tree : " + framework.getRecursionTreeSize(quickSort, problem) + "\n");
-        writer.write("QuickSort Recurrence: " + framework.getRecurrence(quickSort) + "\n\n");
-
-        // Medir tiempo de ejecucion para MergeSort con factor de division 3.
-        long startTimeMergeSort3 = System.nanoTime();
-        Solution solution3 = framework.executeAlgorithm(mergeSort3, problem);
-        long endTimeMergeSort3 = System.nanoTime();
-        long elapsedTimeMergeSort3 = endTimeMergeSort3 - startTimeMergeSort3;
-        averageTimeMergeSort3 += elapsedTimeMergeSort3;
-        writer.write("MergeSort3 Execution Time (Size " + size + "): " + elapsedTimeMergeSort3 + " nanoseconds\n");
-        writer.write("MergeSort3 Max Level Recursion Tree : " + framework.getRecursionTreeSize(mergeSort3, problem) + "\n");
-        
-        // Imprimir la ecuación de recurrencia
-        writer.write("MergeSort Recurrence: " + framework.getRecurrence(mergeSort) + "\n\n");
-
-      }
-
-      writer.write("Average MergeSort Execution Time: " + averageTimeMergeSort / 4 + " nanoseconds\n");
-      writer.write("Average QuickSort Execution Time: " + averageTimeQuickSort / 4 + " nanoseconds\n");
-      writer.write("Average MergeSort3 Execution Time: " + averageTimeMergeSort3 / 4 + " nanoseconds\n");
-
-      // Generar una instancia de tamaño 10
-      Problem problem = instanceGenerator.generateInstance(10);
-      writer.write("\nInstancia de tamaño 10: " + Arrays.toString(problem.getData()) + "\n");
-      Solution solution = framework.executeAlgorithm(mergeSort, problem);
-      writer.write("MergeSort Solution: " + Arrays.toString(solution.getSolutionData()) + "\n");
-      // Obtener un valor de la instancia en un indice aleatorio
-      int randomIndex = (int) (Math.random() * 10);
-      int searchedValue = problem.getData()[randomIndex];
-      writer.write("Valor a buscar en la instancia: " + searchedValue + "\n");
-      Problem sortedProblem = new Problem(solution.getSolutionData());
-      Solution solution2 = framework.executeAlgorithm(sortedProblem, searchedValue, 0, problem.getData().length - 1);
-      writer.write("Indice del valor buscado: " + Arrays.toString(solution2.getSolutionData()) + "\n");
-
-      
-
-      
-      writer.close();
-      System.out.println("Results have been written to results.txt");
-    } catch (IOException e) {
-      System.err.println("An error occurred while writing to the file: " + e.getMessage());
+    if (algorithmChoice == 1) {
+      executeBinarySearchNormalMode(instanceGenerator, framework);
+    } else if (algorithmChoice == 2) {
+      executeHanoiNormalMode(instanceGenerator, framework);
+    } else {
+      System.out.println("Invalid algorithm");
     }
+
+    scanner.close();
+  }
+
+  private static void debugMode() {
+    InstanceGenerator instanceGenerator = new InstanceGenerator();
+    DivideAndConquerFramework framework = new DivideAndConquerFramework();
+
+    System.out.println("Algorithm to execute:");
+    System.out.println("1. Binary Search");
+    System.out.println("2. Hanoi");
+    Scanner scanner = new Scanner(System.in);
+    int algorithmChoice = scanner.nextInt();
+
+    if (algorithmChoice == 1) {
+      executeBinarySearchDebugMode(instanceGenerator, framework, scanner);
+    } else if (algorithmChoice == 2) {
+      executeHanoiDebugMode(instanceGenerator, framework, scanner);
+    } else {
+      System.out.println("Invalid algorithm");
+    }
+
+    scanner.close();
+  }
+
+  private static void executeBinarySearchNormalMode(InstanceGenerator instanceGenerator, DivideAndConquerFramework framework) {
+    QuickSort quickSort = new QuickSort();
+    int[] instanceSizes = {10, 100, 1000}; // Instance sizes to run binary search on
+
+    for (int size : instanceSizes) {
+      Problem problem = instanceGenerator.generateInstance(size);
+      Solution sortedSolution = framework.executeAlgorithm(quickSort, problem);
+      Problem sortedProblem = new Problem(sortedSolution.getSolutionData());
+      int searchedValue = sortedProblem.getData()[(int) (Math.random() * size)]; // Choose a random value from the sorted array
+      long startTime = System.nanoTime();
+      Solution binarySearchSolution = framework.executeAlgorithm(sortedProblem, searchedValue, 0, sortedProblem.getData().length - 1);
+      long endTime = System.nanoTime();
+      long elapsedTime = endTime - startTime;
+
+      System.out.println("Binary Search execution time (Size " + size + "): " + elapsedTime + " nanoseconds");
+    }
+  }
+
+  private static void executeHanoiNormalMode(InstanceGenerator instanceGenerator, DivideAndConquerFramework framework) {
+    Hanoi hanoiSolver = new Hanoi();
+    int[] diskCounts = {3, 5, 7}; // Disk counts to run Hanoi on
+
+    for (int disks : diskCounts) {
+      Problem hanoiProblem = instanceGenerator.generateInstance(disks);
+      long startTime = System.nanoTime();
+      Solution hanoiSolution = framework.executeHanoi(hanoiSolver, disks, "A", "C", "B");
+      long endTime = System.nanoTime();
+      long elapsedTime = endTime - startTime;
+
+      System.out.println("Hanoi execution time (Disks " + disks + "): " + elapsedTime + " nanoseconds");
+    }
+  }
+
+  private static void executeBinarySearchDebugMode(InstanceGenerator instanceGenerator, DivideAndConquerFramework framework, Scanner scanner) {
+    System.out.println("Instance size:");
+    int size = scanner.nextInt();
+    QuickSort quickSort = new QuickSort();
+    Problem problem = instanceGenerator.generateInstance(size);
+    Solution sortedSolution = framework.executeAlgorithm(quickSort, problem);
+    Problem sortedProblem = new Problem(sortedSolution.getSolutionData());
+    System.out.println("Unsorted instance:");
+    System.out.println(Arrays.toString(problem.getData()));
+    System.out.println("Sorted instance:");
+    System.out.println(Arrays.toString(sortedProblem.getData()));
+    System.out.println("Enter the value to search:");
+    int searchedValue = scanner.nextInt();
+    Solution binarySearchSolution = framework.executeAlgorithm(sortedProblem, searchedValue, 0, sortedProblem.getData().length - 1);
+    int[] resultIndexes = binarySearchSolution.getSolutionData();
+
+    if (resultIndexes[0] != -1) {
+      System.out.println("The value " + searchedValue + " was found at index " + resultIndexes[0]);
+    } else {
+      System.out.println("The value " + searchedValue + " was not found in the instance.");
+    }
+  }
+
+  private static void executeHanoiDebugMode(InstanceGenerator instanceGenerator, DivideAndConquerFramework framework, Scanner scanner) {
+    Hanoi hanoiSolver = new Hanoi();
+    System.out.println("Select number of disks:");
+    int numberOfDisks = scanner.nextInt();
+    Problem hanoiProblem = instanceGenerator.generateInstance(numberOfDisks);
+    Solution hanoiSolution = framework.executeHanoi(hanoiSolver, numberOfDisks, "A", "C", "B");
+    System.out.println("Hanoi movements:");
+    framework.printHanoiMovements();
   }
 }
